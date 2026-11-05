@@ -14,6 +14,8 @@ If time is tight, Lab 4 becomes an instructor demo using `solutions/server.ts`.
 
 ## Demo flow tips
 - Demo gh-aw first: the lock file reveal ("it's just Actions") builds trust.
+- Point out that the safe-output job creates the `report` label if needed; GitHub
+  labels are repository metadata and are not copied from a template.
 - Show the safe-outputs guardrail failing live - it's the memorable moment.
 - Link the two topics: gh-aw `tools:` can use MCP servers; the same protocol powers Lab 3-4.
 

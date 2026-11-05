@@ -11,6 +11,8 @@ turns it into a normal Actions `.lock.yml`.
    ```
    Look at the generated `daily-status.lock.yml`. Notice the agent job is read-only and
    issue creation happens in a separate job (safe outputs).
+   That job also creates the `report` label if it is missing, using the GitHub Actions
+   token. It leaves an existing label unchanged.
 3. Commit and push both files, then run it:
    ```bash
    git add .github && git commit -m "Add daily status workflow" && git push
