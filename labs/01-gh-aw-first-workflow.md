@@ -3,6 +3,12 @@
 Concept: an agentic workflow is **Markdown + YAML frontmatter**. `gh aw compile`
 turns it into a normal Actions `.lock.yml`.
 
+The starter repository includes [sample issues](../docs/sample-issues.md) with
+TODO tasks, a bug, a documentation request, and a discussion question. Use them
+to give the daily report sample activity; run the workflow soon after opening
+the issues so they fall within its 24-hour window. Forks do not copy issues, so
+create equivalent sample issues in your fork if needed.
+
 1. Open `.github/workflows/daily-status.md`. Identify: trigger (`on`), `permissions`,
    `engine`, `tools`, `safe-outputs`, and the natural-language body.
 2. Compile:
