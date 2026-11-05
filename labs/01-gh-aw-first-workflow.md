@@ -1,4 +1,4 @@
-# Lab 1 – Your first agentic workflow (15 min)
+# Lab 1 – Your first agentic workflow (10 min)
 
 Concept: an agentic workflow is **Markdown + YAML frontmatter**. `gh aw compile`
 turns it into a normal Actions `.lock.yml`.
@@ -30,3 +30,10 @@ create equivalent sample issues in your fork if needed.
    Note: changing the body needs no YAML knowledge.
 
 Discussion: why can't the agent just create the issue itself?
+
+## What you learned
+
+- Define an agentic workflow using YAML configuration and natural-language instructions.
+- Compile Markdown into an executable GitHub Actions lock file.
+- Keep the agent read-only and publish changes through a separate safe-output job.
+- Run a workflow, inspect its report, and refine its instructions.

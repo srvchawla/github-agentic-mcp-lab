@@ -1,4 +1,4 @@
-# Lab 0 – Setup (10 min, do before class)
+# Lab 0 – Setup (Pre-requisite)
 
 1. Create your own repo from this template (or fork) and clone it.
 2. Install tools:
@@ -42,3 +42,10 @@
 5. Enable Actions and allow issues in your repo.
 
 Check: `gh aw --help` works and `npm test` is green.
+
+## What you learned
+
+- Set up a personal lab repository, the GitHub CLI, and the gh-aw extension.
+- Install the sample app's dependencies and verify it with tests.
+- Distinguish local Copilot sign-in from authentication in GitHub Actions.
+- Choose between organization-billed inference and a repository PAT secret.

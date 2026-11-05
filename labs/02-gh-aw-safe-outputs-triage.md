@@ -27,9 +27,24 @@ it reads only the triggering issue and does not install the app's npm packages.
    job adds an 👀 reaction to acknowledge the triage, then posts its labels and comment.
    The reaction means the workflow processed the issue; it is not an immediate
    "workflow started" signal.
-6. **Experiment (guardrails):** ask the agent in the body to *close the issue*.
-   It can't - `close-issue` is not in `safe-outputs`. Discuss why least privilege matters.
+6. **Experiment (guardrails):** In a new issue, ask the agent in the body to *close the issue*.
+   It can't - `close-issue` is not in `safe-outputs`. This is where least privilege matters.
+   
 7. **Stretch:** add `network:` or `tools:` restrictions; try a `pull_request` trigger
    that comments a review summary.
 
 Further reading: https://github.github.com/gh-aw/
+
+### Checkpoint Q/A
+/ **Q:** Why can't the agent close an issue in this lab?
+/ **A:** The `close-issue` operation is not included in the `safe-outputs` allowlist, demonstrating least privilege.
+
+/ **Q:** How do safe-output allowlists contribute to security?
+/ **A:** They limit the agent's write capabilities to only approved operations, reducing the risk of unintended changes.
+
+## What you learned
+- Trigger issue triage by opening a new issue, without an `@copilot` mention.
+- Use a lightweight model and scoped GitHub reads for a focused triage task.
+- Recognize the acknowledgment reaction, classification labels, and triage comment.
+- Limit permitted writes with safe-output allowlists and operation counts.
+- Explain least privilege: an issue's instructions cannot grant permission to close it.

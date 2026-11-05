@@ -21,3 +21,10 @@ The server in `mcp-server/` exposes the sample app's tasks over MCP (stdio).
 
 Key points: tool name + description + zod schema are what the model sees; never write
 to stdout except protocol messages (use `console.error` for logs).
+
+## What you learned
+- Expose application functionality as tools in a custom stdio MCP server.
+- Describe tools and validate their inputs with Zod schemas.
+- Test tool calls with the MCP Inspector before using them in an agent.
+- Register your server in VS Code and invoke its tools through natural language.
+- Keep diagnostic logs on stderr so stdout remains reserved for protocol messages.
