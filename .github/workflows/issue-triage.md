@@ -1,8 +1,8 @@
 ---
-description: Triage new and reopened issues - label and leave a helpful comment
+description: Triage new issues - label and leave a helpful comment
 on:
   issues:
-    types: [opened, reopened]
+    types: [opened]
 permissions:
   contents: read
   issues: read
@@ -33,9 +33,6 @@ safe-outputs:
 ---
 
 # Issue Triage
-
-This runs when an issue is opened or reopened. For a reopened issue, mention in
-the comment that it was reopened and what seems to still need attention.
 
 Read only the issue that triggered this workflow using
 `gh issue view ${{ github.event.issue.number }} --repo ${{ github.repository }} --json title,body,labels`.
