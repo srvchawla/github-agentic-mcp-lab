@@ -3,6 +3,12 @@ description: Triage new and reopened issues - label and leave a helpful comment
 on:
   issues:
     types: [opened, reopened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Issue number to triage
+        required: true
+        type: string
 permissions:
   contents: read
   issues: read
@@ -21,7 +27,7 @@ jobs:
           script: |
             await github.rest.reactions.createForIssue({
               ...context.repo,
-              issue_number: context.payload.issue.number,
+              issue_number: context.payload.issue?.number ?? Number(context.payload.inputs.issue_number),
               content: "eyes"
             });
 safe-outputs:
@@ -38,7 +44,7 @@ This runs when an issue is opened or reopened. For a reopened issue, mention in
 the comment that it was reopened and what seems to still need attention.
 
 Read only the issue that triggered this workflow using
-`gh issue view ${{ github.event.issue.number }} --repo ${{ github.repository }} --json title,body,labels`.
+`gh issue view ${{ github.event.issue.number || inputs.issue_number }} --repo ${{ github.repository }} --json title,body,labels`.
 Do not search repositories, list issues, or reread the issue.
 
 Choose at most two labels from bug, enhancement, question, and documentation.
