@@ -3,14 +3,27 @@
 1. Copy the solution into place (or write it yourself from the hints):
    ```bash
    cp solutions/issue-triage.md .github/workflows/issue-triage.md
+   ```
+2. If you chose organization-billed authentication in [Lab 0](00-setup.md), add
+   `copilot-requests: write` to the `permissions` block in the copied workflow:
+   ```yaml
+   permissions:
+     contents: read
+     issues: read
+     copilot-requests: write
+   ```
+   If you chose the PAT option, leave that permission out; the repository secret
+   configured in Lab 0 is used for Copilot inference.
+3. Compile and push the workflow:
+   ```bash
    gh aw compile
    git add .github && git commit -m "Add triage" && git push
    ```
-2. Open an issue, e.g. "Completing a task that does not exist crashes the app".
-3. Watch the workflow in the Actions tab. Confirm labels and a comment appear.
-4. **Experiment (guardrails):** ask the agent in the body to *close the issue*.
+4. Open an issue, e.g. "Completing a task that does not exist crashes the app".
+5. Watch the workflow in the Actions tab. Confirm labels and a comment appear.
+6. **Experiment (guardrails):** ask the agent in the body to *close the issue*.
    It can't - `close-issue` is not in `safe-outputs`. Discuss why least privilege matters.
-5. **Stretch:** add `network:` or `tools:` restrictions; try a `pull_request` trigger
+7. **Stretch:** add `network:` or `tools:` restrictions; try a `pull_request` trigger
    that comments a review summary.
 
 Further reading: https://github.github.com/gh-aw/
