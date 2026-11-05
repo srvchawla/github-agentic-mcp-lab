@@ -7,9 +7,11 @@ permissions:
   contents: read
   issues: read
 engine: copilot
+model: haiku
 tools:
   github:
-    toolsets: [default]
+    mode: gh-proxy
+    toolsets: [issues]
 jobs:
   safe_outputs:
     pre-steps:
@@ -32,10 +34,12 @@ safe-outputs:
 
 # Issue Triage
 
-Read the newly opened issue `${{ github.event.issue.number }}` in this repository.
+Read only the issue that triggered this workflow using
+`gh issue view ${{ github.event.issue.number }} --repo ${{ github.repository }} --json title,body,labels`.
+Do not search repositories, list issues, or reread the issue.
 
-1. Decide which of the allowed labels fit (bug, enhancement, question, documentation) and apply them.
-2. Add one friendly comment that summarizes the issue in one sentence and
-   suggests the next step. If it is a bug, point to the most likely file under `src/`.
+Choose at most two labels from bug, enhancement, question, and documentation.
+Add one friendly comment with a one-sentence summary and next step. If it is a
+bug, mention the most likely file under `src/`.
 
-Never claim a fix is done. Be concise.
+Never claim a fix is done. Keep the comment concise.

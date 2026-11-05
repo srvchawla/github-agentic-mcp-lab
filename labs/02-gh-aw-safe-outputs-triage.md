@@ -1,5 +1,8 @@
 # Lab 2 – Safe outputs: issue triage (15 min)
 
+The sample uses the lightweight `haiku` model and `gh-proxy` for GitHub reads;
+it reads only the triggering issue and does not install the app's npm packages.
+
 1. Copy the solution into place (or write it yourself from the hints):
    ```bash
    cp solutions/issue-triage.md .github/workflows/issue-triage.md
