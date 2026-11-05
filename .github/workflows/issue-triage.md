@@ -10,6 +10,18 @@ engine: copilot
 tools:
   github:
     toolsets: [default]
+jobs:
+  safe_outputs:
+    pre-steps:
+      - name: React to acknowledge triage
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            await github.rest.reactions.createForIssue({
+              ...context.repo,
+              issue_number: context.payload.issue.number,
+              content: "eyes"
+            });
 safe-outputs:
   add-labels:
     allowed: [bug, enhancement, question, documentation]

@@ -20,7 +20,10 @@
    git add .github && git commit -m "Add triage" && git push
    ```
 4. Open an issue, e.g. "Completing a task that does not exist crashes the app".
-5. Watch the workflow in the Actions tab. Confirm labels and a comment appear.
+5. Watch the workflow in the Actions tab. After the agent finishes, the safe-output
+   job adds an 👀 reaction to acknowledge the triage, then posts its labels and comment.
+   The reaction means the workflow processed the issue; it is not an immediate
+   "workflow started" signal.
 6. **Experiment (guardrails):** ask the agent in the body to *close the issue*.
    It can't - `close-issue` is not in `safe-outputs`. Discuss why least privilege matters.
 7. **Stretch:** add `network:` or `tools:` restrictions; try a `pull_request` trigger
