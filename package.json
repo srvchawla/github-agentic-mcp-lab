@@ -6,10 +6,13 @@
   "description": "Hands-on lab: GitHub Agentic Workflows (gh-aw) and MCP",
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "build:site": "node scripts/build-site.mjs",
+    "preview:site": "node scripts/preview-site.mjs",
     "test": "tsx --test test/*.test.ts"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "marked": "^15.0.12",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   }

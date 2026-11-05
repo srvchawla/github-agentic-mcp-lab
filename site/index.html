@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A hands-on workshop for GitHub Agentic Workflows and MCP. Build, run, and understand AI agents with guardrails.">
+  <title>Agentic Workflows + MCP · Hands-on Lab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230969da'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='monospace' font-size='38' fill='white'%3E%26gt;%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="Agentic Lab home">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.925c.562.104.768-.244.768-.542 0-.267-.01-.976-.015-1.916-3.13.68-3.79-1.51-3.79-1.51-.512-1.3-1.25-1.647-1.25-1.647-1.023-.7.077-.685.077-.685 1.13.08 1.725 1.16 1.725 1.16 1.005 1.722 2.638 1.225 3.28.937.103-.729.394-1.225.716-1.507-2.498-.284-5.124-1.25-5.124-5.565 0-1.23.44-2.235 1.16-3.023-.117-.285-.503-1.43.11-2.98 0 0 .945-.303 3.094 1.155A10.77 10.77 0 0 1 12 6.172c.956.004 1.92.13 2.818.38 2.148-1.458 3.09-1.155 3.09-1.155.615 1.55.23 2.695.113 2.98.722.788 1.157 1.793 1.157 3.023 0 4.326-2.63 5.277-5.136 5.555.405.35.767 1.043.767 2.1 0 1.517-.014 2.742-.014 3.115 0 .3.203.65.774.54A11.252 11.252 0 0 0 12 .75Z"/></svg>
+      <span>workshops <span class="brand-slash">/</span> <strong>agentic-lab</strong></span>
+      <span class="pill public-badge">Public</span>
+    </a>
+    <div class="header-actions">
+      <span class="workshop-badge"><span class="status-dot"></span> Hands-on workshop</span>
+      <button id="theme-toggle" class="icon-button" aria-label="Switch to dark theme" title="Switch theme">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 13.2A8.5 8.5 0 0 1 10.8 3.5a8.5 8.5 0 1 0 9.7 9.7Z"/></svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+      </button>
+      <a class="button secondary repo-button" href="{{REPO_URL}}">View repository <span aria-hidden="true">↗</span></a>
+      <button id="menu-toggle" class="icon-button menu-button" aria-label="Open lab navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+    </div>
+  </header>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" aria-label="Workshop navigation">
+      <div class="sidebar-heading"><span class="sidebar-icon" aria-hidden="true">⌘</span><div><strong>Your learning path</strong><small>From prompt to production guardrails</small></div></div>
+      <nav aria-label="Labs">
+        <a class="overview-nav active" href="#overview"><span aria-hidden="true">▦</span> Workshop overview</a>
+        <p class="nav-caption">THE LABS</p>
+        {{LAB_NAVIGATION}}
+      </nav>
+      <div class="progress-panel">
+        <div class="progress-label"><strong>Your progress</strong><span id="progress-count">0 / 5</span></div>
+        <progress id="progress-bar" max="5" value="0" aria-label="Completed labs"></progress>
+        <p id="progress-message">Every great workflow starts with a first step.</p>
+        <button id="reset-progress" class="text-button">Reset progress</button>
+      </div>
+      <div class="sidebar-bottom">
+        <a href="{{REPO_URL}}/blob/main/docs/instructor-guide.md">Instructor guide <span aria-hidden="true">↗</span></a>
+        <a href="https://github.github.com/gh-aw/">gh-aw documentation <span aria-hidden="true">↗</span></a>
+        <span class="local-note"><span class="status-dot"></span> Progress saved in this browser</span>
+      </div>
+    </aside>
+    <main id="main-content" tabindex="-1">
+      <div id="storage-notice" class="notice" role="status" hidden></div>
+      <section id="overview" class="view overview-page" data-view="overview" aria-labelledby="overview-title">
+        <div class="breadcrumb"><span>Learn</span><span aria-hidden="true">/</span><span>GitHub Copilot</span><span aria-hidden="true">/</span><strong>Agentic workflows</strong></div>
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="status-dot"></span> LESS THEORY. MORE BUILDING.</div>
+            <h1 id="overview-title" tabindex="-1">Give your code<br>a little <span>agency.</span></h1>
+            <p class="hero-description">Build agents that work <em>with</em> your repository.<br class="desktop-break"> Learn GitHub Agentic Workflows and MCP, one hands-on lab at a time.</p>
+            <div class="hero-actions"><a class="button primary" id="start-learning" href="#lab-0">Start the workshop <span aria-hidden="true">→</span></a><a class="hero-secondary" href="#playground">Explore the guardrails <span aria-hidden="true">↓</span></a></div>
+            <div class="hero-meta"><span><span aria-hidden="true">◷</span> One-hour workshop</span><span><span aria-hidden="true">▤</span> 5 guided labs</span><span><span aria-hidden="true">⌘</span> TypeScript</span></div>
+          </div>
+          <div class="workflow-preview" aria-label="Illustration of the agentic workflow">
+            <div class="preview-title"><span><span class="file-dot"></span> issue-triage.md</span><span class="preview-branch">⑂ main</span></div>
+            <div class="preview-code"><span class="code-line"><span class="line-number">1</span><span class="syntax-muted">---</span></span><span class="code-line"><span class="line-number">2</span><span><b>on:</b> issues</span></span><span class="code-line"><span class="line-number">3</span><span><b>engine:</b> copilot</span></span><span class="code-line"><span class="line-number">4</span><span><b>safe-outputs:</b></span></span><span class="code-line"><span class="line-number">5</span><span>  <b>add-labels:</b></span></span><span class="code-line"><span class="line-number">6</span><span>    <b>allowed:</b> <i>[bug, enhancement]</i></span></span><span class="code-line"><span class="line-number">7</span><span class="syntax-muted">---</span></span><span class="code-line prompt-line"><span class="line-number">8</span><span>Triage this issue. Suggest a next step.</span></span></div>
+            <div class="preview-pipeline"><span class="pipeline-node"><span class="node-icon">01</span>Read</span><span class="pipeline-connector">→</span><span class="pipeline-node"><span class="node-icon blue">02</span>Reason</span><span class="pipeline-connector">→</span><span class="pipeline-node"><span class="node-icon green">03</span>Safe output</span></div>
+            <div class="preview-result"><span class="check-icon" aria-hidden="true">✓</span><span>Helpful by design. <strong>Scoped by default.</strong></span><span class="mini-pill">read-only agent</span></div>
+          </div>
+        </div>
+        <div class="principles-strip"><span><span class="principle-icon blue-text" aria-hidden="true">◇</span> Real repository. Real workflows.</span><span><span class="principle-icon green-text" aria-hidden="true">✓</span> Guardrails, not guesswork.</span><span><span class="principle-icon purple-text" aria-hidden="true">⌁</span> Your tools, connected with MCP.</span></div>
+        <section class="learning-section" aria-labelledby="learning-title">
+          <div class="section-title"><div><div class="eyebrow">YOUR NEXT COMMIT STARTS HERE</div><h2 id="learning-title">Small labs. Big capabilities.</h2><p>Set up once, then build your way through. Your progress stays with you.</p></div><span class="pill">Setup + 3 core labs + stretch</span></div>
+          <div class="lab-grid">{{LAB_CARDS}}</div>
+        </section>
+        <section id="playground" class="playground" aria-labelledby="playground-title">
+          <div class="playground-intro"><div class="eyebrow">TRY THE TRUST BOUNDARY</div><h2 id="playground-title">A prompt isn't<br>a permission slip.</h2><p>An issue can ask for anything. Your workflow decides what actually gets written.</p><span class="simulation-label"><span class="status-dot"></span> Browser simulation · no API calls</span></div>
+          <div class="playground-panel">
+            <label for="requested-action">An issue asks the agent to…</label>
+            <div class="playground-controls"><select id="requested-action"><option value="add-labels">Add a bug label</option><option value="add-comment">Leave a helpful comment</option><option value="close-issue">Close the issue</option><option value="merge-pull-request">Merge a pull request</option></select><button class="button primary" id="test-permission">Check permission →</button></div>
+            <div class="allowlist"><span>safe-outputs:</span><code>add-labels</code><code>add-comment</code></div>
+            <div id="permission-result" class="permission-result" role="status"><span class="result-symbol" aria-hidden="true">◇</span><div><strong>Two operations. An explicit boundary.</strong><p>Choose an action to see what the safe-output allowlist permits.</p></div></div>
+          </div>
+        </section>
+        <section class="preflight" aria-labelledby="preflight-title"><div><div class="eyebrow">BEFORE YOU DIVE IN</div><h2 id="preflight-title">Bring curiosity. And a few tools.</h2><p>A GitHub account with Copilot, Node.js 20+, the GitHub CLI, and VS Code.</p></div><a class="button secondary" href="#lab-0">Check your setup <span aria-hidden="true">→</span></a></section>
+      </section>
+      {{LAB_SECTIONS}}
+      <footer class="site-footer"><span><strong>Agentic Lab</strong> <span class="footer-divider">/</span> Build understanding, not just automation.</span><a href="{{REPO_URL}}">Made for learning. Open on GitHub ↗</a></footer>
+    </main>
+  </div>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <dialog id="reset-dialog"><form method="dialog"><span class="eyebrow">A FRESH START</span><h2>Reset your lab progress?</h2><p>This clears the completion checkboxes in this browser. Your code and GitHub repository won't change.</p><div class="dialog-actions"><button class="button secondary" value="cancel">Keep progress</button><button class="button danger" value="reset">Reset progress</button></div></form></dialog>
+</body>
+</html>
