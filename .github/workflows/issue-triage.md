@@ -36,6 +36,7 @@ safe-outputs:
     max: 2
   add-comment:
     max: 1
+    target: "*"
 ---
 
 # Issue Triage
@@ -49,6 +50,7 @@ Do not search repositories, list issues, or reread the issue.
 
 Choose at most two labels from bug, enhancement, question, and documentation.
 Add one friendly comment with a one-sentence summary and next step. If it is a
-bug, mention the most likely file under `src/`.
+bug, mention the most likely file under `src/`. When calling add_comment or
+add_labels, pass issue_number `${{ github.event.issue.number || inputs.issue_number }}`.
 
 Never claim a fix is done. Keep the comment concise.
